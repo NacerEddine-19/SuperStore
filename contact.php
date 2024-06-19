@@ -51,7 +51,7 @@ if(isset($_POST['send'])){
 
 <div class="heading">
    <h3>contacter Nous</h3>
-   <p> <a href="index.php">home</a> / contact </p>
+   <p> <a href="index.php">accueil</a> / contact </p>
 </div>
 
 <section class="contact">

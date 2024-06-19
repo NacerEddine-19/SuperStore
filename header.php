@@ -1,9 +1,9 @@
 <?php
-if(isset($message)){
-   foreach($message as $message){
+if (isset($message)) {
+   foreach ($message as $msg) {
       echo '
       <div class="message">
-         <span>'.$message.'</span>
+         <span>' . $msg . '</span>
          <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
       </div>
       ';
@@ -21,7 +21,16 @@ if(isset($message)){
             <a href="#" class="fab fa-instagram"></a>
             <a href="#" class="fab fa-linkedin"></a>
          </div>
-         <p>nouvelle <a href="login.php">connexion</a> | <a href="register.php">S'inscrire</a> </p>
+         <?php
+         
+         if (isset($_SESSION['user_name'])) {
+            // If user is connected, show a welcome message
+            echo '<p>Bienvenue, ' . htmlspecialchars($_SESSION['user_name']) . '!</p>';
+         } else {
+            // If user is not connected, show the login/register links
+            echo '<p>nouvelle <a href="login.php">connexion</a> | <a href="register.php">S\'inscrire</a> </p>';
+         }
+         ?>
       </div>
    </div>
 
@@ -42,10 +51,11 @@ if(isset($message)){
             <a href="search_page.php" class="fas fa-search"></a>
             <div id="user-btn" class="fas fa-user"></div>
             <?php
-               $select_cart_number = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
-               $cart_rows_number = mysqli_num_rows($select_cart_number); 
+            $select_cart_number = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+            $cart_rows_number = mysqli_num_rows($select_cart_number);
             ?>
-            <a href="cart.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php echo $cart_rows_number; ?>)</span> </a>
+            <a href="cart.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php echo $cart_rows_number; ?>)</span>
+            </a>
          </div>
 
          <div class="user-box">

@@ -72,7 +72,7 @@ if(isset($_POST['order_btn'])){
 
 <div class="heading">
    <h3>checkout</h3>
-   <p> <a href="index.php">home</a> / checkout </p>
+   <p> <a href="index.php">accueil</a> / checkout </p>
 </div>
 
 <section class="display-order">
@@ -124,7 +124,7 @@ if(isset($_POST['order_btn'])){
          </div>
          <div class="inputBox">
             <span>address line 01 :</span>
-            <input type="number" min="0" name="flat" required placeholder="ex. 180^">
+            <input type="text" min="0" name="flat" required placeholder="ex. 180^">
          </div>
          <div class="inputBox">
             <span>address line 01 :</span>
